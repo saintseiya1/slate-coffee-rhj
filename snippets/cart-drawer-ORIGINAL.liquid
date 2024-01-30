@@ -430,24 +430,6 @@
           </button>
         </div>
       </div>
-
-    {%- if cart != empty -%}      
-      {% assign upsellProduct = all_products[settings.upsell_product] %}
-      {% assign cartContainsUpsell = false %}
-      {%- for item in cart.items -%}
-        {% if item.title == settings.upsell_product.title %}
-          {% assign cartContainsUpsell = true %}            
-        {% endif %}
-      {% endfor %}
-      {% unless cartContainsUpsell %}
-        <div>
-          {{ settings.upsell_headline }}
-          {% render 'card-product', card_product: upsellProduct, show_quick_add: true, 
-          horizontal_class: true %}
-        </div>
-      {% endunless %}    
-    {% endif %}
-
     </div>
   </div>
 </cart-drawer>
